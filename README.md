@@ -1,5 +1,7 @@
 # rock-paper-scissors
 
+(/images/RPS.jpg)
+
 The Challenge:
 The following challenge description comes from Frontend Mentor:
 
