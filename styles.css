@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    background-image: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+    background-repeat: no-repeat;
+}
+/* Header */
+.main-header{
+    margin: 1rem;
+    padding: 1rem;
+    border: solid 2px hsl(217, 16%, 45%);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.score{
+    margin: auto 0;
+    padding: .5rem 1.5rem;
+    background-color: white;
+    color:hsl(229, 64%, 46%);
+    border-radius: 5px;
+}
+#score-text{
+    font-size: .8rem;
+}
+#score{
+    text-align: center;
+    color: hsl(229, 25%, 31%);
+    font-size: 3rem;
+}
+
+/* Main */
+#action-buttons{
+    margin:auto;
+    background-image: url('/images/bg-pentagon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+}
+.choose-weapon{
+    background-color: white;
+}
