@@ -1,6 +1,6 @@
 # rock-paper-scissors
+![rps-image](/images/RPS.jpg)
 
-(/images/RPS.jpg)
 
 The Challenge:
 The following challenge description comes from Frontend Mentor:
