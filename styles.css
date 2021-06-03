@@ -73,7 +73,7 @@ main{
     margin:auto;
     width: 80vw;
 }
-#action-buttons{
+#weapon-button-container{
     background-image: url('/images/bg-pentagon.svg');
     background-repeat: no-repeat;
     background-position: center;
@@ -128,8 +128,10 @@ button>img{
 
 /* Rules Button */
 .rules{
-    position: relative;
-    top: 3rem;
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
 }
 #rules-button{
