@@ -13,6 +13,10 @@ body{
 button:hover{
 cursor: pointer;
 }
+p{
+    color: white;
+    letter-spacing: .1rem;
+}
 /* Mobile rules */
 .mobile-rules{
     display:none;
@@ -78,9 +82,8 @@ main .results{
     background-repeat: no-repeat;
     background-position: center;
     background-size: 60%;
-}
-button>img{
-    width: 30px;
+    height: 60vh;
+    margin: 0 1rem;
 }
 .weapon-row{
     display: flex;
@@ -99,6 +102,7 @@ button>img{
     background-color: white;
     padding: 1rem;
     border-radius: 50%;
+    width: 80px;
 } 
 
 .choose-weapon:active, .choose-weapon button:active{
@@ -111,19 +115,19 @@ button>img{
 }
 #spock{
     border: 10px solid hsl(230, 89%, 65%);
-    /* transform: translate(20px, -10px); */
+    transform: translate(20px, -10px);
 }
 #paper{
     border: 10px solid hsl(349, 70%, 56%);
-    /* transform: translate(-20px, -10px); */
+    transform: translate(-20px, -10px);
 }
 #lizard{
     border: 10px solid hsl(261, 72%, 63%);
-    /* transform: translateX(10px); */
+    transform: translateX(10px);
 }
 #rock{
     border: 10px solid hsl(189, 58%, 57%);
-    /* transform: translateX(-10px); */
+    transform: translateX(-10px);
 }
 
 /* Rules Button */
@@ -164,3 +168,8 @@ button>img{
     -webkit-transform: translateY(4px);
 }
 }
+/* Results*/
+.results{
+    justify-content: space-evenly;
+}
+
