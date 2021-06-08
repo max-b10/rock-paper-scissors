@@ -11,6 +11,9 @@ const paperButton = document.querySelector("#paper");
 const lizardButton = document.querySelector("#lizard");
 const rockButton = document.querySelector("#rock");
 
+// Results page
+const resultsDiv = document.querySelector(".results");
+
 //  Rules buttons:
 const rulesButton = document.querySelector("#rules-button");
 const rulesPage = document.querySelector(".mobile-rules");
@@ -19,41 +22,42 @@ const closeRulesButton = document.querySelector("#close-rules-button");
 const playerWeapons = ["rock", "paper", "scissors", "lizard", "spock"];
 const computerWeapons = ["rock", "paper", "scissors", "lizard", "spock"];
 
+resultsDiv.style.display = "none";
 //  Switch to result screen after player weapon choice:
 const weaponButtonsArray = Array.from(weaponButtons);
 for (let i = 0; i < weaponButtonsArray.length; i++) {
   weaponButtonsArray[i].addEventListener("click", () => {
     weaponButtonContainer.style.display = "none";
+    resultsDiv.style.display = "block";
   });
 }
-let playerChoice = "";
+// let playerChoice = "";
 let computerChoice = "comp";
 
-// const game = () => {
 // Player choice:
 scissorsButton.addEventListener("click", (e) => {
-  playerChoice = "scissors";
+  let playerChoice = "scissors";
   console.log(playerChoice);
   computerWeapon();
   // setTimeout(computerWeapon, 1500);
 });
 spockButton.addEventListener("click", (e) => {
-  playerChoice = "spock";
+  let playerChoice = "spock";
   console.log(playerChoice);
   computerWeapon();
 });
 paperButton.addEventListener("click", (e) => {
-  playerChoice = "paper";
+  let playerChoice = "paper";
   console.log(playerChoice);
   computerWeapon();
 });
 lizardButton.addEventListener("click", (e) => {
-  playerChoice = "lizard";
+  let playerChoice = "lizard";
   console.log(playerChoice);
   computerWeapon();
 });
 rockButton.addEventListener("click", (e) => {
-  playerChoice = "rock";
+  let playerChoice = "rock";
   console.log(playerChoice);
   computerWeapon();
 });
@@ -62,12 +66,15 @@ computerWeapon = () => {
   const weaponNumber = Math.floor(Math.random() * 5);
   computerChoice = computerWeapons[weaponNumber];
   console.log(computerChoice);
+  // console.log(`Comp choice: ${computerChoice}`);
 };
-if (playerChoice === computerChoice) {
-  console.log("Draw!");
-}
-// };
-// game();
+
+// Need a display outcome function:
+// Need a check winner function:
+
+// if (playerChoice === computerChoice) {
+//   console.log("Draw!");
+// }
 
 // Rules button action:
 rulesButton.addEventListener("click", () => {
