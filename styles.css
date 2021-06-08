@@ -69,7 +69,7 @@ cursor: pointer;
 }
 
 /* Main */
-main{
+main .results{
     margin:auto;
     width: 80vw;
 }
