@@ -11,6 +11,8 @@ const paperButton = document.querySelector("#paper");
 const lizardButton = document.querySelector("#lizard");
 const rockButton = document.querySelector("#rock");
 
+// Score Display:
+const scoreDisplay = document.querySelector("#score");
 // Results page
 const resultsDiv = document.querySelector(".results");
 
@@ -31,46 +33,45 @@ for (let i = 0; i < weaponButtonsArray.length; i++) {
     resultsDiv.style.display = "flex";
   });
 }
-// let playerChoice = "";
+
 let computerChoice = "comp";
 
 // Player choice:
 scissorsButton.addEventListener("click", (e) => {
   let playerChoice = "scissors";
-  console.log(playerChoice);
   computerWeapon();
   generateResultsDOM(playerChoice, computerChoice);
+  checkOutcome(playerChoice, computerChoice);
   // setTimeout(computerWeapon, 1500);
 });
 spockButton.addEventListener("click", (e) => {
   let playerChoice = "spock";
-  console.log(playerChoice);
   computerWeapon();
   generateResultsDOM(playerChoice, computerChoice);
+  checkOutcome(playerChoice, computerChoice);
 });
 paperButton.addEventListener("click", (e) => {
   let playerChoice = "paper";
-  console.log(playerChoice);
   computerWeapon();
   generateResultsDOM(playerChoice, computerChoice);
+  checkOutcome(playerChoice, computerChoice);
 });
 lizardButton.addEventListener("click", (e) => {
   let playerChoice = "lizard";
-  console.log(playerChoice);
   computerWeapon();
   generateResultsDOM(playerChoice, computerChoice);
+  checkOutcome(playerChoice, computerChoice);
 });
 rockButton.addEventListener("click", (e) => {
   let playerChoice = "rock";
-  console.log(playerChoice);
   computerWeapon();
   generateResultsDOM(playerChoice, computerChoice);
+  checkOutcome(playerChoice, computerChoice);
 });
 // Computer random weapon selection:
 computerWeapon = () => {
   const weaponNumber = Math.floor(Math.random() * 5);
   computerChoice = computerWeapons[weaponNumber];
-  console.log(`Comp choice: ${computerChoice}`);
 };
 
 // Generate and display outcome DOM:
@@ -80,8 +81,9 @@ const generateResultsDOM = (playerChoice, computerChoice) => {
   playerResultDiv.classList.add("playerResultDiv");
 
   let playerResultPara = document.createElement("p");
-  playerResultPara.classList.add("playerResultPara");
-  playerResultPara.innerHTML = "YOU PICKED";
+  playerResultPara.id = "playerResultPara";
+  // playerResultPara.style.marginBottom = ".5rem";
+  playerResultPara.innerHTML = "YOU PICKED:";
 
   let playerResultImage = document.createElement("img");
   playerResultImage.classList.add("playerResultImage", "choose-weapon");
@@ -97,8 +99,9 @@ const generateResultsDOM = (playerChoice, computerChoice) => {
   compResultDiv.classList.add("compResultDiv");
 
   let compResultPara = document.createElement("p");
-  compResultPara.classList.add("compResultPara");
-  compResultPara.innerHTML = "HOUSE PICKED";
+  compResultPara.id = "compResultPara";
+  // compResultPara.style.marginBottom = ".5rem";
+  compResultPara.innerHTML = "HOUSE PICKED:";
 
   let compResultImage = document.createElement("img");
   compResultImage.classList.add("compResultImage", "choose-weapon");
@@ -110,11 +113,75 @@ const generateResultsDOM = (playerChoice, computerChoice) => {
   compResultDiv.appendChild(compResultImage);
 };
 
-// Need a check winner function:
-
-// if (playerChoice === computerChoice) {
-//   console.log("Draw!");
-// }
+// Check winner/loser:
+const checkOutcome = (playerChoice, computerChoice) => {
+  // Draw
+  if (playerChoice === computerChoice) {
+    console.log(
+      `Draw! Player choice: ${playerChoice}. House choice: ${computerChoice}.`
+    );
+  }
+  // Scissors
+  else if (
+    playerChoice === "scissors" &&
+    (computerChoice === "paper" || computerChoice === "lizard")
+  ) {
+    console.log("Player wins");
+  } else if (
+    playerChoice === "scissors" &&
+    (computerChoice === "rock" || computerChoice === "spock")
+  ) {
+    console.log("House wins");
+  }
+  // Paper
+  else if (
+    playerChoice === "paper" &&
+    (computerChoice === "rock" || computerChoice === "spock")
+  ) {
+    console.log("Player wins");
+  } else if (
+    playerChoice === "paper" &&
+    (computerChoice === "scissors" || computerChoice === "lizard")
+  ) {
+    console.log("House wins");
+  }
+  // Rock
+  else if (
+    playerChoice === "rock" &&
+    (computerChoice === "scissors" || computerChoice === "lizard")
+  ) {
+    console.log("Player wins");
+  } else if (
+    playerChoice === "rock" &&
+    (computerChoice === "paper" || computerChoice === "spock")
+  ) {
+    console.log("House wins");
+  }
+  // Lizard
+  else if (
+    playerChoice === "lizard" &&
+    (computerChoice === "spock" || computerChoice === "paper")
+  ) {
+    console.log("Player wins");
+  } else if (
+    playerChoice === "lizard" &&
+    (computerChoice === "rock" || computerChoice === "scissors")
+  ) {
+    console.log("House wins");
+  }
+  // Spock
+  else if (
+    playerChoice === "spock" &&
+    (computerChoice === "scissors" || computerChoice === "rock")
+  ) {
+    console.log("Player wins");
+  } else if (
+    playerChoice === "spock" &&
+    (computerChoice === "lizard" || computerChoice === "paper")
+  ) {
+    console.log("House wins");
+  }
+};
 
 // Rules button action:
 rulesButton.addEventListener("click", () => {
