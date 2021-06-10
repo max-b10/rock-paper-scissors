@@ -25,6 +25,7 @@ const playerWeapons = ["rock", "paper", "scissors", "lizard", "spock"];
 const computerWeapons = ["rock", "paper", "scissors", "lizard", "spock"];
 
 resultsDiv.style.display = "none";
+
 //  Switch to result screen after player weapon choice:
 const weaponButtonsArray = Array.from(weaponButtons);
 for (let i = 0; i < weaponButtonsArray.length; i++) {
@@ -74,34 +75,32 @@ computerWeapon = () => {
   computerChoice = computerWeapons[weaponNumber];
 };
 
-// Generate and display outcome DOM:
+// Generate and display result outcome DOM:
 const generateResultsDOM = (playerChoice, computerChoice) => {
   // Player Results DOM:
   let playerResultDiv = document.createElement("div");
-  playerResultDiv.classList.add("playerResultDiv");
-
-  let playerResultPara = document.createElement("p");
-  playerResultPara.id = "playerResultPara";
-  // playerResultPara.style.marginBottom = ".5rem";
-  playerResultPara.innerHTML = "YOU PICKED:";
+  playerResultDiv.classList.add("playerResult");
 
   let playerResultImage = document.createElement("img");
   playerResultImage.classList.add("playerResultImage", "choose-weapon");
   playerResultImage.id = `${playerChoice}`;
   playerResultImage.setAttribute("src", `/images/icon-${playerChoice}.svg`);
 
+  let playerResultPara = document.createElement("p");
+  playerResultPara.id = "playerResultPara";
+  playerResultPara.innerHTML = "YOU PICKED";
+
   resultsDiv.appendChild(playerResultDiv);
-  playerResultDiv.appendChild(playerResultPara);
   playerResultDiv.appendChild(playerResultImage);
+  playerResultDiv.appendChild(playerResultPara);
 
   // Computer Results DOM:
   let compResultDiv = document.createElement("div");
-  compResultDiv.classList.add("compResultDiv");
+  compResultDiv.classList.add("compResult");
 
   let compResultPara = document.createElement("p");
   compResultPara.id = "compResultPara";
-  // compResultPara.style.marginBottom = ".5rem";
-  compResultPara.innerHTML = "HOUSE PICKED:";
+  compResultPara.innerHTML = "HOUSE PICKED";
 
   let compResultImage = document.createElement("img");
   compResultImage.classList.add("compResultImage", "choose-weapon");
@@ -109,8 +108,8 @@ const generateResultsDOM = (playerChoice, computerChoice) => {
   compResultImage.setAttribute("src", `/images/icon-${computerChoice}.svg`);
 
   resultsDiv.appendChild(compResultDiv);
-  compResultDiv.appendChild(compResultPara);
   compResultDiv.appendChild(compResultImage);
+  compResultDiv.appendChild(compResultPara);
 };
 
 // Check winner/loser:
