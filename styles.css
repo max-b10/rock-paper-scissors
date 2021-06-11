@@ -37,11 +37,17 @@ p{
     border: none;
     background-color: transparent;
 }
-
+.container{
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+    padding-top: 2rem;
+}
+  
 /* Header */
 .main-header{
     margin: 1rem;
-    padding: 0 1rem;
+    padding: 1rem 1.4rem 1rem 2rem;
     border: solid 2px hsl(217, 16%, 45%);
     border-radius: 5px;
     display: flex;
@@ -74,82 +80,103 @@ p{
 }
 
 /* Main */
-#weapon-button-container{
-    background-image: url('/images/bg-pentagon.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 70%;
-    height: 60vh;
-    width: 70vw;
-    margin: 0 auto;
+.main{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    'topLeft scissors scissors topRight'
+    'spock midLeft midRight paper'
+    'botLeft lizard rock botRight';
+    /* 'scissors scissors scissors scissors'
+    'spock spock paper paper'
+    'lizard rock'; */
+    place-items: center;
+    height: 30rem;
+    padding-top: 4rem;
+}
+.main:before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 28%;
+    top: 35%;
+    background: url('/images/bg-pentagon.svg') no-repeat;
+    z-index: -1;
+}
+.topLeft{
+    grid-area: topLeft;
+}
+.topRight{
+    grid-area: topRight;
+}
+.midLeft{
+    grid-area: midLeft;
+}
+.midRight{
+    grid-area: midRight;
+}
+.botLeft{
+    grid-area: botLeft;
+}
+.botRight{
+    grid-area: botRight;
 }
 
+.scissors{
+    grid-area: scissors;
+}
+.spock{
+    grid-area: spock;
+    align-items: flex-end;
+}
 
-.weapon-row{
-    display: flex;
-    justify-content: center;
-    padding: .5rem 0;
+.paper{
+    grid-area: paper;
 }
-.weapon-row:nth-of-type(2){
-    display: flex;
-    justify-content: space-between;
+.lizard{
+    grid-area: lizard;
 }
-.weapon-row:nth-of-type(3){
-    display: flex;
-    justify-content: space-evenly;
+.rock{
+    grid-area: rock;
 }
+/* .empty{
+    grid-area: empty;
+    height: 1px;
+    width: 1px;
+    background-color: white;
+} */
+
 .choose-weapon{
     background-color: white;
     padding: 1rem;
     border-radius: 50%;
     width: 80px;
 } 
-/* Pentagon and Weapon sizes on small screens */
-@media (max-width: 375px) {
-    #weapon-button-container{
-    height: 55vh;
-    width: 80vw;
-}
-.choose-weapon{
-    width: 70px;
-}
-}
-@media (min-width: 375px) and (max-width: 474px) {
-    #weapon-button-container{
-    height: 57vh;
-    width: 75vw;
-}
-.choose-weapon{
-    width: 75px;
-}
-}
-@media (min-width: 475px) {
-    #weapon-button-container{
-    height: 65vh;
-    width: 65vw;
-}
+
+.choose-weapon:hover {
+    transform: scale(1.25);
+    transition: 0.25s;
+    cursor: pointer;
 }
 
-.choose-weapon:active, .choose-weapon button:active{
-    -ms-transform: translateY(4px);
-    -webkit-transform: translateY(4px);
-    transform: translateY(4px);
-}
 /* Move weapons slightly to fit on pentagon (don't change them on results screen)*/
-.weapon-row>div>#spock{
-    transform: translate(20px, -10px);
+/* .weapon-row>div>#spock{
+    transform: translate(10px, -10px);
 }
 .weapon-row>div>#paper{
-    transform: translate(-20px, -10px);
+    transform: translate(-10px, -10px);
 }
+@media (min-width: 474px){
 .weapon-row>div>#lizard{
-     transform: translateX(10px);
+     transform: translateY(20px);
 
 }
 .weapon-row>div>#rock{
-    transform: translateX(-10px);
+    transform: translateY(20px);
 }
-
+} */
 #scissors{
     border: 10px solid hsl(40, 84%, 53%);
 }
@@ -205,6 +232,10 @@ p{
 }
 }
 /* Results*/
+.results-container{
+    display: flex;
+    flex-direction: column;
+}
 .results{
     justify-content: space-evenly;
     align-items: center;
@@ -212,4 +243,8 @@ p{
 }
 .playerResult .compResult{
     width: 25%;
+}
+.announce-winner{
+    display: flex;
+    flex-direction: column;
 }
