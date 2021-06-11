@@ -12,70 +12,76 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="/images/favicons/MBfavicon.png" />
   </head>
+
   <body>
-    <header class="main-header">
-      <div class="title">
-        <img id="title-image" src="/images/logo-bonus.svg" alt="logo image" />
-      </div>
-      <div class="score">
-        <p id="score-text">SCORE</p>
-        <div id="score">1</div>
-      </div>
-    </header>
-    <main class="main">
-      <div id="weapon-button-container">
-        <div class="weapon-row">
-          <div>
-            <img
-              class="choose-weapon"
-              id="scissors"
-              src="/images/icon-scissors.svg"
-              alt="scissors svg"
-            />
-          </div>
+    <div class="container">
+      <header class="main-header">
+        <div class="title">
+          <img id="title-image" src="/images/logo-bonus.svg" alt="logo image" />
         </div>
-        <div class="weapon-row">
-          <div>
-            <img
-              class="choose-weapon"
-              id="spock"
-              src="/images/icon-spock.svg"
-              alt="spock svg"
-            />
-          </div>
-          <div>
-            <img
-              class="choose-weapon"
-              id="paper"
-              src="/images/icon-paper.svg"
-              alt="paper svg"
-            />
-          </div>
+        <div class="score">
+          <p id="score-text">SCORE</p>
+          <div id="score">1</div>
         </div>
-        <div class="weapon-row">
-          <div>
-            <img
-              class="choose-weapon"
-              id="lizard"
-              src="/images/icon-lizard.svg"
-              alt="lizard svg"
-            />
-          </div>
-          <div>
-            <img
-              class="choose-weapon"
-              id="rock"
-              src="/images/icon-rock.svg"
-              alt="rock svg"
-            />
-          </div>
+      </header>
+      <main class="main">
+        <div class="topLeft">tl</div>
+        <div class="scissors">
+          <img
+            class="choose-weapon"
+            id="scissors"
+            src="/images/icon-scissors.svg"
+            alt="scissors svg"
+          />
         </div>
-      </div>
-    </main>
+        <div class="topRight">tr</div>
+        <div class="midLeft">ml</div>
+        <div class="spock">
+          <img
+            class="choose-weapon"
+            id="spock"
+            src="/images/icon-spock.svg"
+            alt="spock svg"
+          />
+        </div>
+        <div class="paper">
+          <img
+            class="choose-weapon"
+            id="paper"
+            src="/images/icon-paper.svg"
+            alt="paper svg"
+          />
+        </div>
+        <div class="midRight">mr</div>
+        <div class="botLeft">bl</div>
+        <div class="lizard">
+          <img
+            class="choose-weapon"
+            id="lizard"
+            src="/images/icon-lizard.svg"
+            alt="lizard svg"
+          />
+        </div>
 
+        <div class="rock">
+          <img
+            class="choose-weapon"
+            id="rock"
+            src="/images/icon-rock.svg"
+            alt="rock svg"
+          />
+        </div>
+        <div class="botRight">br</div>
+
+        <!-- <div class="empty">hi</div>
+        <div class="empty">hi</div> -->
+      </main>
+    </div>
     <!-- Results  -->
-    <div class="results"></div>
-
+    <div class="results-container">
+      <div class="results"></div>
+      <div class="announce-winner"></div>
+    </div>
     <div class="rules">
       <button id="rules-button">RULES</button>
     </div>
