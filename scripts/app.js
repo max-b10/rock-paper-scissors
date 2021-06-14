@@ -1,15 +1,13 @@
 //  Weapon container and contents:
-const weaponButtonContainer = document.querySelector(
-  "#weapon-button-container"
-);
+const weaponButtonContainer = document.querySelector(".main");
 const weaponButtons = document.querySelectorAll(".choose-weapon");
 
 // Each player weapon button:
-const scissorsButton = document.querySelector("#scissors");
-const spockButton = document.querySelector("#spock");
-const paperButton = document.querySelector("#paper");
-const lizardButton = document.querySelector("#lizard");
-const rockButton = document.querySelector("#rock");
+const scissorsButton = document.querySelector(".scissors");
+const spockButton = document.querySelector(".spock");
+const paperButton = document.querySelector(".paper");
+const lizardButton = document.querySelector(".lizard");
+const rockButton = document.querySelector(".rock");
 
 // Score Display:
 const scoreDisplay = document.querySelector("#score");
@@ -43,7 +41,7 @@ scissorsButton.addEventListener("click", (e) => {
   computerWeapon();
   generateResultsDOM(playerChoice, computerChoice);
   checkOutcome(playerChoice, computerChoice);
-  // setTimeout(computerWeapon, 1500);
+  // setTimeout(announceWinner, 2000);
 });
 spockButton.addEventListener("click", (e) => {
   let playerChoice = "spock";
@@ -76,6 +74,8 @@ computerWeapon = () => {
 };
 
 // Generate and display result outcome DOM:
+
+// Need to restructure this to match the changes on previous page or styles won't work.
 const generateResultsDOM = (playerChoice, computerChoice) => {
   // Player Results DOM:
   let playerResultDiv = document.createElement("div");
