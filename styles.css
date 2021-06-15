@@ -142,55 +142,55 @@ p{
     position: relative;
     z-index: 2;
 }
-.choose-weapon.scissors{
+.main > .choose-weapon.scissors{
     background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
     box-shadow: 0px 6px 0px 0px hsl(28deg 75% 44%);
     top: 0;
     left: 149px;
 }
 
-.choose-weapon.spock{
+.main > .choose-weapon.spock{
     background: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
     box-shadow: 0px 6px 0px 0px hsl(197deg 54% 36%);
     top: 100px;
     left: 10px;
 }
-.choose-weapon.paper{
+.main > .choose-weapon.paper{
     background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
     box-shadow: 0px 6px 0px 0px hsl(229deg 62% 34%);
     top: 100px;
     right: 10px;
 }
-.choose-weapon.lizard{
+.main > .choose-weapon.lizard{
     background: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
     box-shadow: 0px 6px 0px 0px hsl(259deg 48% 38%);
     bottom: 5px;
     left: 63px;
 }
-.choose-weapon.rock{
+.main > .choose-weapon.rock{
     background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
     box-shadow: 0px 6px 0px 0px hsl(343deg 70% 30%);
     bottom: 5px;
     right: 63px;
 }
 @media(min-width: 767px){
-.choose-weapon.scissors{
+.main > .choose-weapon.scissors{
     top: 0;
     left: 278px;
 }
-.choose-weapon.spock{
+.main >.choose-weapon.spock{
     top: 130px;
     left: 115px;
 }
-.choose-weapon.paper{
+.main >.choose-weapon.paper{
     top: 130px;
     right: 115px;
 }
-.choose-weapon.lizard{
+.main >.choose-weapon.lizard{
     bottom: 0;
     left: 180px;
 }
-.choose-weapon.rock{
+.main >.choose-weapon.rock{
     bottom: 0;
     right: 178px;
 }
@@ -239,16 +239,46 @@ p{
 .results-container{
     display: flex;
     flex-direction: column;
+    height: 50vh;
+    align-items: center;
 }
 .results{
+    display: flex;
     justify-content: space-evenly;
-    align-items: center;
-    text-align: center;
+    /* align-items: center; */
+    flex-flow: nowrap;
 }
-.playerResult .compResult{
-    width: 25%;
+@media (min-width: 767px){
+.results {
+    max-width: 700px;
 }
-.announce-winner{
+}
+.playerPick> #playerPickPara, .compPick> #compPickPara {
+    padding-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.choose-weapon.scissors{
+    background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+    box-shadow: 0px 6px 0px 0px hsl(28deg 75% 44%);
+}
+.choose-weapon.spock{
+    background: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+    box-shadow: 0px 6px 0px 0px hsl(197deg 54% 36%);
+}
+.choose-weapon.paper{
+    background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+    box-shadow: 0px 6px 0px 0px hsl(229deg 62% 34%);
+}
+.choose-weapon.lizard{
+    background: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+    box-shadow: 0px 6px 0px 0px hsl(259deg 48% 38%);
+}
+.choose-weapon.rock{
+    background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+    box-shadow: 0px 6px 0px 0px hsl(343deg 70% 30%);
+}
+/* .announce-winner{
     display: flex;
     flex-direction: column;
-}
+} */
