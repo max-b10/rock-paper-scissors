@@ -11,7 +11,9 @@ const rockButton = document.querySelector(".rock");
 
 // Score Display:
 const scoreDisplay = document.querySelector("#score");
+
 // Results page
+const resultsContainer = document.querySelector(".results-container");
 const resultsDiv = document.querySelector(".results");
 
 //  Rules buttons:
@@ -22,14 +24,14 @@ const closeRulesButton = document.querySelector("#close-rules-button");
 const playerWeapons = ["rock", "paper", "scissors", "lizard", "spock"];
 const computerWeapons = ["rock", "paper", "scissors", "lizard", "spock"];
 
-resultsDiv.style.display = "none";
+resultsContainer.style.display = "none";
 
 //  Switch to result screen after player weapon choice:
 const weaponButtonsArray = Array.from(weaponButtons);
 for (let i = 0; i < weaponButtonsArray.length; i++) {
   weaponButtonsArray[i].addEventListener("click", () => {
     weaponButtonContainer.style.display = "none";
-    resultsDiv.style.display = "flex";
+    resultsContainer.style.display = "flex";
   });
 }
 
@@ -74,42 +76,56 @@ computerWeapon = () => {
 };
 
 // Generate and display result outcome DOM:
-
-// Need to restructure this to match the changes on previous page or styles won't work.
 const generateResultsDOM = (playerChoice, computerChoice) => {
+  resultsContainer.appendChild(resultsDiv);
+
   // Player Results DOM:
-  let playerResultDiv = document.createElement("div");
-  playerResultDiv.classList.add("playerResult");
+  let playerPickDiv = document.createElement("div");
+  playerPickDiv.classList.add("playerPick");
 
-  let playerResultImage = document.createElement("img");
-  playerResultImage.classList.add("playerResultImage", "choose-weapon");
-  playerResultImage.id = `${playerChoice}`;
-  playerResultImage.setAttribute("src", `/images/icon-${playerChoice}.svg`);
+  // Generate 'You Picked' text:
+  let playerPickPara = document.createElement("p");
+  playerPickPara.id = "playerPickPara";
+  playerPickPara.innerHTML = "YOU PICKED:";
+  playerPickDiv.appendChild(playerPickPara);
 
-  let playerResultPara = document.createElement("p");
-  playerResultPara.id = "playerResultPara";
-  playerResultPara.innerHTML = "YOU PICKED";
+  // Create player image div container and append to results div:
+  let playerImageContainer = document.createElement("div");
+  playerImageContainer.classList.add("choose-weapon", `${playerChoice}`);
 
-  resultsDiv.appendChild(playerResultDiv);
-  playerResultDiv.appendChild(playerResultImage);
-  playerResultDiv.appendChild(playerResultPara);
+  // Generate image which player clicked:
+  let playerPickImage = document.createElement("img");
+  playerPickImage.classList.add("playerPickImage");
+  playerPickImage.id = `${playerChoice}`;
+  playerPickImage.setAttribute("src", `/images/icon-${playerChoice}.svg`);
+  playerImageContainer.appendChild(playerPickImage);
+  playerPickDiv.appendChild(playerImageContainer);
+
+  resultsDiv.appendChild(playerPickDiv);
 
   // Computer Results DOM:
-  let compResultDiv = document.createElement("div");
-  compResultDiv.classList.add("compResult");
+  let compPickDiv = document.createElement("div");
+  compPickDiv.classList.add("compPick");
 
-  let compResultPara = document.createElement("p");
-  compResultPara.id = "compResultPara";
-  compResultPara.innerHTML = "HOUSE PICKED";
+  // Generate 'House Picked' text:
+  let compPickPara = document.createElement("p");
+  compPickPara.id = "compPickPara";
+  compPickPara.innerHTML = "HOUSE PICKED:";
+  compPickDiv.appendChild(compPickPara);
 
-  let compResultImage = document.createElement("img");
-  compResultImage.classList.add("compResultImage", "choose-weapon");
-  compResultImage.id = `${computerChoice}`;
-  compResultImage.setAttribute("src", `/images/icon-${computerChoice}.svg`);
+  // Create player image div container and append to results div:
+  let compImageContainer = document.createElement("div");
+  compImageContainer.classList.add("choose-weapon", `${computerChoice}`);
+  compPickDiv.appendChild(compImageContainer);
 
-  resultsDiv.appendChild(compResultDiv);
-  compResultDiv.appendChild(compResultImage);
-  compResultDiv.appendChild(compResultPara);
+  // Generate image which player clicked:
+  let compPickImage = document.createElement("img");
+  compPickImage.classList.add("compPickImage");
+  compPickImage.id = `${computerChoice}`;
+  compPickImage.setAttribute("src", `/images/icon-${computerChoice}.svg`);
+  compImageContainer.appendChild(compPickImage);
+
+  resultsDiv.appendChild(compPickDiv);
 };
 
 // Check winner/loser:
