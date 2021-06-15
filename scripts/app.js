@@ -15,7 +15,7 @@ const scoreDisplay = document.querySelector("#score");
 // Results page
 const resultsContainer = document.querySelector(".results-container");
 const resultsDiv = document.querySelector(".results");
-
+const announceWinner = document.querySelector(".announce-winner");
 //  Rules buttons:
 const rulesButton = document.querySelector("#rules-button");
 const rulesPage = document.querySelector(".mobile-rules");
@@ -25,13 +25,15 @@ const playerWeapons = ["rock", "paper", "scissors", "lizard", "spock"];
 const computerWeapons = ["rock", "paper", "scissors", "lizard", "spock"];
 
 resultsContainer.style.display = "none";
+announceWinner.style.display = "none";
 
 //  Switch to result screen after player weapon choice:
 const weaponButtonsArray = Array.from(weaponButtons);
 for (let i = 0; i < weaponButtonsArray.length; i++) {
   weaponButtonsArray[i].addEventListener("click", () => {
     weaponButtonContainer.style.display = "none";
-    resultsContainer.style.display = "flex";
+    resultsContainer.style.display = "block";
+    announceWinner.style.display = "block";
   });
 }
 
@@ -130,11 +132,19 @@ const generateResultsDOM = (playerChoice, computerChoice) => {
 
 // Check winner/loser:
 const checkOutcome = (playerChoice, computerChoice) => {
+  // Generate Outcome text and 'Play Again' button.
+  let outcomeDiv = document.createElement("div");
+  outcomeDiv.classList.add("outcome");
+  announceWinner.appendChild(outcomeDiv);
+  let outcomeText = document.createElement("h3");
+  outcomeText.innerHTML = "";
   // Draw
   if (playerChoice === computerChoice) {
     console.log(
       `Draw! Player choice: ${playerChoice}. House choice: ${computerChoice}.`
     );
+    outcomeText.innerHTML = "DRAW!";
+    outcomeDiv.appendChild(outcomeText);
   }
   // Scissors
   else if (
@@ -142,11 +152,15 @@ const checkOutcome = (playerChoice, computerChoice) => {
     (computerChoice === "paper" || computerChoice === "lizard")
   ) {
     console.log("Player wins");
+    outcomeText.innerHTML = "YOU WIN!";
+    outcomeDiv.appendChild(outcomeText);
   } else if (
     playerChoice === "scissors" &&
     (computerChoice === "rock" || computerChoice === "spock")
   ) {
     console.log("House wins");
+    outcomeText.innerHTML = "YOU LOSE!";
+    outcomeDiv.appendChild(outcomeText);
   }
   // Paper
   else if (
@@ -154,11 +168,15 @@ const checkOutcome = (playerChoice, computerChoice) => {
     (computerChoice === "rock" || computerChoice === "spock")
   ) {
     console.log("Player wins");
+    outcomeText.innerHTML = "YOU WIN!";
+    outcomeDiv.appendChild(outcomeText);
   } else if (
     playerChoice === "paper" &&
     (computerChoice === "scissors" || computerChoice === "lizard")
   ) {
     console.log("House wins");
+    outcomeText.innerHTML = "YOU LOSE!";
+    outcomeDiv.appendChild(outcomeText);
   }
   // Rock
   else if (
@@ -166,11 +184,15 @@ const checkOutcome = (playerChoice, computerChoice) => {
     (computerChoice === "scissors" || computerChoice === "lizard")
   ) {
     console.log("Player wins");
+    outcomeText.innerHTML = "YOU WIN!";
+    outcomeDiv.appendChild(outcomeText);
   } else if (
     playerChoice === "rock" &&
     (computerChoice === "paper" || computerChoice === "spock")
   ) {
     console.log("House wins");
+    outcomeText.innerHTML = "YOU LOSE!";
+    outcomeDiv.appendChild(outcomeText);
   }
   // Lizard
   else if (
@@ -178,11 +200,15 @@ const checkOutcome = (playerChoice, computerChoice) => {
     (computerChoice === "spock" || computerChoice === "paper")
   ) {
     console.log("Player wins");
+    outcomeText.innerHTML = "YOU WIN!";
+    outcomeDiv.appendChild(outcomeText);
   } else if (
     playerChoice === "lizard" &&
     (computerChoice === "rock" || computerChoice === "scissors")
   ) {
     console.log("House wins");
+    outcomeText.innerHTML = "YOU LOSE!";
+    outcomeDiv.appendChild(outcomeText);
   }
   // Spock
   else if (
@@ -190,11 +216,15 @@ const checkOutcome = (playerChoice, computerChoice) => {
     (computerChoice === "scissors" || computerChoice === "rock")
   ) {
     console.log("Player wins");
+    outcomeText.innerHTML = "YOU WIN!";
+    outcomeDiv.appendChild(outcomeText);
   } else if (
     playerChoice === "spock" &&
     (computerChoice === "lizard" || computerChoice === "paper")
   ) {
     console.log("House wins");
+    outcomeText.innerHTML = "YOU LOSE!";
+    outcomeDiv.appendChild(outcomeText);
   }
 };
 
